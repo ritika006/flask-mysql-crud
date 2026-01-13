@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>User List</h2>
+<a href="/add" class="btn btn-primary mb-3">Add User</a>
+
+<table class="table table-bordered">
+<tr>
+<th>ID</th><th>Name</th><th>Email</th><th>Action</th>
+</tr>
+
+{% for user in users %}
+
+<tr>
+<td>{{ user.id }}</td>
+<td>{{ user.name }}</td>
+<td>{{ user.email }}</td>
+<td>
+<a href="/edit/{{ user.id }}" class="btn btn-warning btn-sm">Edit</a>
+<a href="/delete/{{ user.id }}" class="btn btn-danger btn-sm">Delete</a>
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
